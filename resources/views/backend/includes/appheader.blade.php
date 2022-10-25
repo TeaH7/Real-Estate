@@ -79,9 +79,12 @@
                                     <a class="dropdown-item" href="lockscreen.html">
                                         <i class="dropdown-icon fe fe-lock"></i> Lockscreen
                                     </a>
-                                    <a class="dropdown-item" href="login.html">
+                                    <form action="{{route('logout')}}" method="POST">
+                                        @csrf
+                                    <button class="dropdown-item" >
                                         <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
-                                    </a>
+                                    </button>
+                                </form>
                                 </div>
                             </div>
                         </div>
