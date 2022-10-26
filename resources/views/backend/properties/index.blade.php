@@ -1,20 +1,16 @@
 @extends('layouts.admin')
 
 @section('admin-content')
-
-
-
-
     <!-- CONTAINER -->
     <div class="main-container container-fluid">
 
         <!-- PAGE-HEADER -->
         <div class="page-header">
-            <h1 class="page-title">Users</h1>
+            <h1 class="page-title">Properties</h1>
             <div>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Admin</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">All Users</li>
+                    <li class="breadcrumb-item active" aria-current="page">All Properties</li>
                 </ol>
             </div>
         </div>
@@ -25,7 +21,7 @@
             <div class="col-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title mb-0">All Users</h3>
+                        <h3 class="card-title mb-0">All Properties</h3>
                     </div>
                     <div class="card-body pt-4">
                         <div class="grid-margin">
@@ -39,37 +35,30 @@
                                                         <thead class="border-top">
                                                             <tr>
                                                                 <th class="bg-transparent border-bottom-0"
-                                                                    style="width: 5%;">Id</th>
+                                                                    style="width: 5%;">Image</th>
                                                                 <th class="bg-transparent border-bottom-0">
-                                                                    Image</th>
+                                                                    Name</th>
+
                                                                 <th class="bg-transparent border-bottom-0">
-                                                                    First_Name</th>
+                                                                    For</th>
                                                                 <th class="bg-transparent border-bottom-0">
-                                                                    Last Name</th>
+                                                                    Status</th>
                                                                 <th class="bg-transparent border-bottom-0">
-                                                                    Email</th>
-                                                                <th class="bg-transparent border-bottom-0">
-                                                                    Phone</th>
+                                                                    Property Type</th>
 
                                                                 <th class="bg-transparent border-bottom-0"
-                                                                    style="width: 10%;">Role</th>
+                                                                    style="width: 10%;">Price</th>
                                                                 <th class="bg-transparent border-bottom-0"
-                                                                    style="width: 5%;">Username</th>
+                                                                    style="width: 5%;">Agent</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @if ($agents->count())
-                                                                @foreach ($agents as $agent)
+                                                            @if ($properties->count())
+                                                                @foreach ($properties as $property)
                                                                     <tr class="border-bottom">
                                                                         <td class="text-center">
                                                                             <div class="mt-0 mt-sm-2 d-block">
-                                                                                <h6 class="mb-0 fs-14 fw-semibold">
-                                                                                    {{ $agent->id }}</h6>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td class="text-center">
-                                                                            <div class="mt-0 mt-sm-2 d-block">
-                                                                                <img src=" {{ asset('storage/' . $agent->image) }}"
+                                                                                <img src=" {{ asset('storage/' . $property->cover_image) }}"
                                                                                     alt="" class="img-fluid"
                                                                                     width="100px">
                                                                             </div>
@@ -77,42 +66,47 @@
                                                                         <td class="text-center">
                                                                             <div class="mt-0 mt-sm-2 d-block">
                                                                                 <h6 class="mb-0 fs-14 fw-semibold">
-                                                                                    {{ $agent->first_name }}</h6>
+                                                                                    {{ $property->name }}</h6>
                                                                             </div>
                                                                         </td>
                                                                         <td class="text-center">
                                                                             <div class="mt-0 mt-sm-2 d-block">
                                                                                 <h6 class="mb-0 fs-14 fw-semibold">
-                                                                                    {{ $agent->last_name }}</h6>
+                                                                                    {{ ucwords($property->for) }}</h6>
+                                                                            </div>
+                                                                        </td>
+
+                                                                        <td class="text-center">
+                                                                            <div class="mt-0 mt-sm-2 d-block">
+                                                                                <h6 class="mb-0 fs-14 fw-semibold">
+                                                                                    {{ ucwords($property->status) }}</h6>
                                                                             </div>
                                                                         </td>
                                                                         <td class="text-center">
                                                                             <div class="mt-0 mt-sm-2 d-block">
                                                                                 <h6 class="mb-0 fs-14 fw-semibold">
-                                                                                    {{ $agent->email }}</h6>
+                                                                                    {{ ucwords($property->property_type) }}
+                                                                                </h6>
                                                                             </div>
                                                                         </td>
                                                                         <td class="text-center">
                                                                             <div class="mt-0 mt-sm-2 d-block">
                                                                                 <h6 class="mb-0 fs-14 fw-semibold">
-                                                                                    {{ $agent->phone }}</h6>
+                                                                                    {{ $property->price }}$</h6>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <div class="mt-0 mt-sm-2 d-block">
+                                                                                <h6 class="mb-0 fs-14 fw-semibold">
+                                                                                    {{ $property->user->first_name }}
+                                                                                    {{ $property->user->last_name }}</h6>
                                                                             </div>
                                                                         </td>
 
 
-                                                                        <td>
-                                                                            <div class="mt-sm-1 d-block">
-                                                                                <span
-                                                                                    class="badge bg-success-transparent rounded-pill text-success p-2 px-3">{{ $agent->role }}</span>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td class="text-center">
-                                                                            <div class="mt-0 mt-sm-2 d-block">
-                                                                                <h6 class="mb-0 fs-14 fw-semibold">
-                                                                                    {{ $agent->username }}</h6>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
+
+
+                                                                        {{-- <td>
                                                                             <div class="g-2">
                                                                                 <a class="btn text-primary btn-sm"
                                                                                     data-bs-toggle="tooltip"
@@ -131,13 +125,13 @@
                                                                                             class="fe fe-trash-2 fs-14"></span></button>
                                                                                 </form>
                                                                             </div>
-                                                                        </td>
+                                                                        </td> --}}
                                                                     </tr>
                                                                 @endforeach
                                                             @else
                                                                 <tr>
                                                                     <td colspan="8">
-                                                                        <p class="text-center">Nuk ka Agjente</p>
+                                                                        <p class="text-center">Nuk Ka Prona</p>
                                                                     </td>
                                                                 </tr>
                                                             @endif
@@ -160,5 +154,4 @@
 
 
     </div>
-
 @endsection

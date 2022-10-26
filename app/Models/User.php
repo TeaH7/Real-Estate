@@ -60,4 +60,10 @@ class User extends Authenticatable
             ->generateSlugsFrom(['first_name', 'last_name'])
             ->saveSlugsTo('username')->usingSeparator('');
     }
+
+
+    public function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
 }

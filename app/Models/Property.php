@@ -27,7 +27,8 @@ class Property extends Model
         'slider_image',
         'in_slider',
         'user_id',
-        'slug'
+        'slug',
+        'cover_image'
 
     ];
 
@@ -37,5 +38,10 @@ class Property extends Model
         return SlugOptions::create()
             ->generateSlugsFrom(['name'])
             ->saveSlugsTo('slug');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

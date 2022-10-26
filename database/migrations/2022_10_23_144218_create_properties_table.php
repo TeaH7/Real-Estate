@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('location');
             $table->decimal('price', 8, 2);
             $table->string('video')->nullable();
+            $table->string('cover_image');
             $table->integer('bed');
             $table->integer('bath');
             $table->integer('garage');
@@ -32,6 +33,7 @@ return new class extends Migration
             $table->string('slider_image')->nullable();
             $table->enum('in_slider', ['yes', 'no']);
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
             $table->timestamps();
         });
     }

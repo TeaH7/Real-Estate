@@ -37,17 +37,17 @@
                                 <div class="col-12">
                                     <label for="last_name" class="form-label">Last Name</label>
                                     <input type="text" class="form-control" id="last_name" name="last_name"
-                                        value="{{ old('last_name') }}>
+                                        value="{{ old('last_name') }}">
                                 </div>
                                 <div class="col-12">
                                     <label for="email" class="form-label">Email</label>
                                     <input type="text" class="form-control" id="email" name="email"
-                                        value="{{ old('email') }}>
+                                        value="{{ old('email') }}">
                                 </div>
                                 <div class="col-12">
                                     <label for="phone" class="form-label">Phone</label>
                                     <input type="number" class="form-control" id="phone" name="phone"
-                                        value="{{ old('phone') }}>
+                                        value="{{ old('phone') }}">
                                 </div>
                                 <div class="col-12">
                                     <label for="description" class="form-label">Description</label>
@@ -73,8 +73,7 @@
                                         <span class="input-group-text" id="basic-addon1">Facebook</span>
                                     </div>
                                     <input type="url" class="form-control" placeholder="Url" aria-label="facebook"
-                                        aria-describedby="basic-addon1" name="facebook"
-                                        value="{{ old('facebook') }}>
+                                        aria-describedby="basic-addon1" name="facebook" value="{{ old('facebook') }}">
                                 </div>
                                 <div class="input-group
                                         mb-3">
@@ -82,8 +81,7 @@
                                         <span class="input-group-text" id="basic-addon1">Instagram</span>
                                     </div>
                                     <input type="url" class="form-control" placeholder="Url" aria-label="instagram"
-                                        aria-describedby="basic-addon1" name="instagram"
-                                        value="{{ old('instagram') }}>
+                                        aria-describedby="basic-addon1" name="instagram" value="{{ old('instagram') }}">
                                 </div>
                                 <div class="input-group
                                         mb-3">
@@ -91,8 +89,7 @@
                                         <span class="input-group-text" id="basic-addon1">LinkedIn</span>
                                     </div>
                                     <input type="url" class="form-control" placeholder="Url" aria-label="linkedin"
-                                        aria-describedby="basic-addon1" name="linkedin"
-                                        value="{{ old('linkedin') }}>
+                                        aria-describedby="basic-addon1" name="linkedin" value="{{ old('linkedin') }}">
                                 </div>
                                 <div class="input-group
                                         mb-3">
@@ -100,8 +97,7 @@
                                         <span class="input-group-text" id="basic-addon1">Twitter</span>
                                     </div>
                                     <input type="url" class="form-control" placeholder="Url" aria-label="twitter"
-                                        aria-describedby="basic-addon1" name="twitter"
-                                        value="{{ old('twitter') }}>
+                                        aria-describedby="basic-addon1" name="twitter" value="{{ old('twitter') }}">
                                 </div>
 
                                 <div class="col-12">

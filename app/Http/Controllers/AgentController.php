@@ -73,7 +73,7 @@ class AgentController extends Controller
 
         ]);
 
-        return redirect()->route('agents.index');
+        return redirect()->route('agents.index')->with('success', 'Agent is created');
     }
 
     /**

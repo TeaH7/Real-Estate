@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\PropertyController;
+use App\Models\Property;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin');
 
     Route::resource('/agents', AgentController::class);
+    Route::resource('/properties', PropertyController::class);
 });
 
 

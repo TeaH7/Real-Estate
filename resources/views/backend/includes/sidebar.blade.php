@@ -44,6 +44,18 @@
                 </li>
                 <li class="slide">
                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                            class="side-menu__icon fe fe-slack"></i><span class="side-menu__label">Properties</span><i
+                            class="angle fe fe-chevron-right"></i></a>
+                    <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)">Properties</a></li>
+                        <li><a href="{{ route('properties.index') }}" class="slide-item"> All Properties</a></li>
+                        <li><a href="{{ route('properties.create') }}" class="slide-item"> Add Property</a></li>
+
+
+                    </ul>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
                             class="side-menu__icon fe fe-package"></i><span class="side-menu__label">Bootstrap</span><i
                             class="angle fe fe-chevron-right"></i></a>
                     <ul class="slide-menu mega-slide-menu">

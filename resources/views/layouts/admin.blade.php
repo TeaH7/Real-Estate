@@ -7,7 +7,7 @@
 
     <!-- GLOBAL-LOADER -->
     <div id="global-loader">
-        <img src="{{asset('backend/assets/images/loader.svg')}}" class="loader-img" alt="Loader">
+        <img src="{{ asset('backend/assets/images/loader.svg') }}" class="loader-img" alt="Loader">
     </div>
     <!-- /GLOBAL-LOADER -->
 
@@ -15,20 +15,26 @@
     <div class="page">
         <div class="page-main">
 
-           @include('backend.includes.appheader')
+            @include('backend.includes.appheader')
 
             <!--APP-SIDEBAR-->
-           @include('backend.includes.sidebar')
+            @include('backend.includes.sidebar')
 
             <!--app-content open-->
- <div class="main-content app-content mt-0">
-    <div class="side-app">
-        @yield('admin-content')
+            <div class="main-content app-content mt-0">
 
-        <!-- CONTAINER END -->
-    </div>
-</div>
-<!--app-content close-->
+                <div class="side-app">
+                    @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @yield('admin-content')
+
+                    <!-- CONTAINER END -->
+                </div>
+            </div>
+            <!--app-content close-->
 
 
         </div>
@@ -42,8 +48,9 @@
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-md-12 col-sm-12 text-center">
-                        Copyright © <span id="year"></span> <a href="javascript:void(0)">Sash</a>. Designed with <span
-                            class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)"> Spruko </a> All rights reserved.
+                        Copyright © <span id="year"></span> <a href="javascript:void(0)">Sash</a>. Designed with
+                        <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)"> Spruko </a> All
+                        rights reserved.
                     </div>
                 </div>
             </div>
@@ -55,7 +62,7 @@
     <!-- BACK-TO-TOP -->
     <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-   @include('backend.includes.scripts')
+    @include('backend.includes.scripts')
 
 
 </body>
