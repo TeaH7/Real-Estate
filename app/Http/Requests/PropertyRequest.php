@@ -40,6 +40,7 @@ class PropertyRequest extends FormRequest
             'area' => ['nullable'],
             'slider_image' => ['nullable'],
             'in_slider' => ['nullable'],
+
         ];
     }
 }

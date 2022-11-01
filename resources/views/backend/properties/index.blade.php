@@ -105,17 +105,16 @@
 
 
 
-
-                                                                        {{-- <td>
+                                                                        <td>
                                                                             <div class="g-2">
                                                                                 <a class="btn text-primary btn-sm"
                                                                                     data-bs-toggle="tooltip"
-                                                                                    href="{{ route('agents.edit', $agent->id) }}"
+                                                                                    href="{{ route('properties.edit', $property->id) }}"
                                                                                     data-bs-original-title="Edit"><span
                                                                                         class="fe fe-edit fs-14"></span></a>
 
                                                                                 <form
-                                                                                    action="{{ route('agents.destroy', $agent->id) }}"
+                                                                                    action="{{ route('properties.destroy', $property->id) }}"
                                                                                     method="POST">
                                                                                     @csrf
                                                                                     @method('DELETE')
@@ -125,7 +124,7 @@
                                                                                             class="fe fe-trash-2 fs-14"></span></button>
                                                                                 </form>
                                                                             </div>
-                                                                        </td> --}}
+                                                                        </td>
                                                                     </tr>
                                                                 @endforeach
                                                             @else
