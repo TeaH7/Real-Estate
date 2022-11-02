@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PropertyRequest;
+use App\Models\Amenity;
+use App\Models\Image;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +33,10 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('backend.properties.create');
+        $amenities = Amenity::all();
+        return view('backend.properties.create', [
+            'amenities' => $amenities
+        ]);
     }
 
     /**
@@ -43,6 +48,8 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
         $data = $request->validated();
+
+
 
         if ($request->hasFile('cover_image')) {
 
@@ -79,7 +86,7 @@ class PropertyController extends Controller
             $data['slider_image'] = $path;
         }
 
-        Property::create([
+        $property = Property::create([
             'name' => $data['name'],
             'description' => $data['description'],
             'status' => $data['status'],
@@ -97,6 +104,28 @@ class PropertyController extends Controller
             'cover_image' => $data['cover_image'],
             'user_id' => Auth::id()
         ]);
+
+
+        foreach ($data['amenity'] as $amenity) {
+            $property->amenities()->attach(Amenity::create(['name' => $amenity]));
+        }
+
+        foreach ($data['image'] as $image) {
+            if ($request->hasFile('image')) {
+
+                $file = $image;
+
+                $filename = time() . $file->getClientOriginalName();
+
+                $path = $file->storeAs('properties/gallery', $filename);
+            }
+            $img = Image::create([
+                'path' => $path
+            ]);
+
+            $property->images()->attach($img);
+        }
+
 
 
         return redirect()->route('properties.index')->with('success', 'Property is created.');

@@ -28,7 +28,9 @@ class Property extends Model
         'in_slider',
         'user_id',
         'slug',
-        'cover_image'
+        'cover_image',
+        'amenity',
+        'image'
 
     ];
 
@@ -43,5 +45,16 @@ class Property extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+
+    public function amenities()
+    {
+        return $this->belongsToMany(Amenity::class);
+    }
+
+    public function images()
+    {
+        return $this->belongsToMany(Image::class);
     }
 }

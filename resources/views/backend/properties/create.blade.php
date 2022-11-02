@@ -149,7 +149,23 @@
                                     </select>
                                 </div>
 
+                                <div class="col-12">
+                                    <label for="amenity" class="form-label">Add Amenities</label>
 
+                                    <select name="amenity[]" id="" class="form-control select2"
+                                        multiple="multiple">
+                                        @if ($amenities->count())
+                                            @foreach ($amenities as $amenity)
+                                                <option value="{{ $amenity->id }}">{{ $amenity->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="image" class="form-label">Images</label>
+                                    <input type="file" class="form-control" name="image[]" multiple="multiple">
+                                </div>
 
 
                                 <div class="text-center">
